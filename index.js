@@ -8,6 +8,7 @@ function addSoundsToButtons() {
         element.addEventListener("click", function () {
             var drum = element.classList[0];
             makeSound(drum);
+            makeMovement(drum);
         })
     });
 }
@@ -17,7 +18,15 @@ function addSoundsToKeyboard() {
     document.addEventListener("keypress", event => {
         var key = event.key;
         makeSound(key);
+        makeMovement(key);
     })
+}
+
+function makeMovement(drum) {
+    var selector = "." + drum;
+    var active = document.querySelector(selector);
+    active.classList.add("pressed");
+    setTimeout(() => active.classList.remove("pressed"), 300);
 }
 
 function makeSound(drum) {
@@ -55,3 +64,4 @@ function makeSound(drum) {
             break;
     };
 }
+
