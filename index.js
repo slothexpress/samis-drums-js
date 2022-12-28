@@ -2,7 +2,6 @@
 var drumsArray = document.querySelectorAll(".drum")
 
 drumsArray.forEach(element => {
-
     var drum = element.classList[0];
     switch (drum) {
         case "w":
@@ -30,15 +29,11 @@ drumsArray.forEach(element => {
             element.addEventListener("click", () => audioK.play());
             break;
         case "l":
-            audioL = new Audio("sounds/kick.mp3");
+            audioL = new Audio("sounds/crash.mp3");
             element.addEventListener("click", () => audioL.play());
             break;
         default:
+            console.log("Switch/Default: " + element.innerHTML);
             break;
     };
 });
-
-
-
-
-
